@@ -19,3 +19,40 @@ litters_df = janitor::clean_names(litters_df)
 
 ## Take a look at the data
 
+Printing in the console
+
+```{r}
+litters_df
+```
+
+```{r}
+head(litters_df)
+# give the first 6 rows of the dataframe
+tail(litters_df)
+# give the last 6 rows of the df
+```
+
+```{r}
+skimr::skim(litters_df)
+```
+
+view(litters_df) should be used in console directly
+
+
+## Options to read CSV
+
+Check out `?read_csv` for more information
+```{r}
+litters_df = read_csv('./data/FAS_litters.csv', skip = 10, col_names = FALSE)
+# skip the first 10 rows
+
+litters_df = read_csv('./data/FAS_litters.csv', na = c("", ".", "NA", "999"))
+
+litters_df = read_csv('./data/FAS_litters.csv')
+
+```
+
+
+
+
+
