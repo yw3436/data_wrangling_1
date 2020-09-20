@@ -5,6 +5,8 @@ output: github_document
 
 ```{r setup}
 library(tidyverse)
+library(readxl)
+library(haven)
 ```
 
 ## Read some data
@@ -51,6 +53,37 @@ litters_df = read_csv('./data/FAS_litters.csv', na = c("", ".", "NA", "999"))
 litters_df = read_csv('./data/FAS_litters.csv')
 
 ```
+
+
+## Other file formats
+
+read in an excel file:
+
+```{r}
+mlb_df = read_excel('data/mlb11.xlsx', range = 'A1:F7')
+mlb_df
+```
+
+read in a SAS file:
+
+```{r}
+pulse_df = read_sas('./data/public_pulse_data.sas7bdat')
+```
+
+
+## comparison with Base R
+
+Why don't we use `read.csv`?
+
+```{r}
+litters_base = read.csv('./data/FAS_litters.csv')
+litters_readr = read_csv('./data/FAS_litters.csv')
+
+# always use read_csv
+```
+
+
+
 
 
 
